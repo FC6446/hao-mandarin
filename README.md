@@ -40,24 +40,24 @@ Open http://127.0.0.1:5173 and stop the server with Ctrl+C. Set `PORT` to use an
 
 ```sh
 node --test
-node scripts/build.js
+node scripts/build-standalone.js
 ```
 
-With npm available, the equivalent commands are `npm start`, `npm test`, and `npm run build`. Tests cover course integrity, progression, answer handling, storage validation, HTML escaping, HTTP access controls, headers and the deployment file list. HTTP tests require permission to connect to a local loopback server.
+With npm available, `npm start` opens the developer server and `npm test` runs the tests. Tests cover course integrity, progression, answer handling, storage validation, HTML escaping, the standalone file and local HTTP access controls. HTTP tests require permission to connect to a local loopback server.
 
-The build writes eight public app files plus `_headers` to `dist/`, and separately generates the single-file **`Hao.html`** in the repository root. To build only the offline copy, run `node scripts/build-standalone.js`. The standalone file embeds all scripts/styles with SHA-256 hashes in its Content Security Policy; it does not use `unsafe-inline` or fetch other files. If the static build finds an unexpected file already in `dist/`, it stops so that the file can be reviewed. Neither build uploads anything.
+The standalone build generates **`Hao.html`** in the repository root. It embeds all scripts and styles with SHA-256 hashes in its Content Security Policy; it does not use `unsafe-inline` or fetch other files. The build does not upload anything.
 
-## Publish
+## Share the app
 
-Deploy **only `dist/`**, using an HTTPS static host. For Cloudflare Pages, set the build command to `node scripts/build.js` and the output directory to `dist`. Its static hosting reads the generated `_headers` configuration. Other hosts must be configured to send equivalent headers explicitly.
+Send **`Hao.html`** to the people who want to use it. They save the file and open it in their own browser. No hosting provider or server is needed; everyone runs their own offline copy.
 
-Read [SECURITY.md](SECURITY.md) before deployment, including the host-side HTTPS and response-header verification steps. Do not expose the repository root or use the preview server directly as a public service. The repository can remain private while its built website is public. This version has been prepared for deployment; no public deployment is created by these commands.
+To transfer learning results, download a progress backup from settings and import it into the other copy. Sharing the HTML file alone does not include your saved progress.
 
 ## Privacy and storage
 
-There is no login, analytics, learner-data API, account sync, or third-party runtime asset. The app stores learning results and theme preferences in `localStorage` on the visitor's device. The hosting provider receives ordinary page requests and may retain access logs. Clearing browser data removes saved progress; private browsing or blocked storage can limit persistence. Settings lets the visitor reset progress after confirmation. The theme preference is separate from course progress.
+There is no login, analytics, learner-data API, account sync, or third-party runtime asset. The offline app makes no network requests. It stores learning results and theme preferences in `localStorage` on your device when the browser allows it. Clearing browser data removes saved progress; private browsing or blocked storage can limit persistence. Settings lets you reset progress after confirmation. The theme preference is separate from course progress.
 
-Local results are editable by the visitor and must not be treated as verified assessment records. Progress is tied to the browser profile and website origin; changing domain or port starts a separate storage area. Progress is not copied to another device automatically.
+Local results are editable by the user and must not be treated as verified assessment records. Progress storage depends on the browser profile and local file location. Use a backup when changing files, browsers or devices; progress is not copied automatically.
 
 ## Project structure
 
@@ -65,10 +65,10 @@ Local results are editable by the visitor and must not be treated as verified as
 - `app.js`, `progress.js`, `html.js`: views, exercises, validated progress and HTML escaping.
 - `index.html`, `styles.css`, `dark.css`, `theme.js`: layout, styles and theme handling.
 - `security.js`, `server.js`: shared security policy, public-asset list and loopback preview server.
-- `scripts/build.js`: allowlisted deployment output and hosting headers.
+- `scripts/build.js`: additional modular build used by the security regression tests.
 - `scripts/build-standalone.js`, `Hao.html`: reproducible, self-contained offline edition.
 - `tests/`: course, state and security regression tests.
-- `SECURITY.md`: controls, deployment requirements and limitations.
+- `SECURITY.md`: security controls and technical limitations.
 
 ## Contribute
 
