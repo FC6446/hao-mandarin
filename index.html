@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#173f37"><meta name="description" content="Lerne Mandarin Schritt für Schritt: Pinyin, Töne, Schriftzeichen und dein erster Dialog.">
-  <title>Hǎo — Dein Weg ins Mandarin</title>
+  <meta name="theme-color" content="#173f37"><meta name="description" content="Learn Mandarin step by step: Pinyin, tones, Chinese characters and your first conversation.">
+  <title>Hǎo — Your path to Mandarin</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23173f37'/%3E%3Ctext x='8' y='48' font-size='46' fill='%23fffbed'%3E好%3C/text%3E%3C/svg%3E">
   <script src="theme.js"></script>
   <link rel="stylesheet" href="styles.css">
@@ -12,20 +12,20 @@
 </head>
 <body>
   <aside class="sidebar">
-    <a class="brand" href="#lernen" aria-label="Hǎo Startseite"><span class="brand-symbol" lang="zh">好</span> hǎo<span class="brand-dot">.</span></a>
-    <p class="brand-caption">EIN KLEINER SCHRITT. JEDEN TAG.</p>
-    <nav aria-label="Hauptnavigation">
-      <a href="#lernen" data-view="lernen"><span aria-hidden="true">▦</span> Mein Lernpfad</a>
-      <a href="#wiederholen" data-view="wiederholen"><span aria-hidden="true">↻</span> Wiederholen <span id="review-badge" class="nav-badge">0</span></a>
-      <a href="#wortschatz" data-view="wortschatz"><span aria-hidden="true">字</span> Mein Wortschatz</a>
+    <a class="brand" href="#learn" aria-label="Hǎo home"><span class="brand-symbol" lang="zh">好</span> hǎo<span class="brand-dot">.</span></a>
+    <p class="brand-caption">ONE SMALL STEP. EVERY DAY.</p>
+    <nav aria-label="Main navigation">
+      <a href="#learn" data-view="learn"><span aria-hidden="true">▦</span> My learning path</a>
+      <a href="#review" data-view="review"><span aria-hidden="true">↻</span> Review <span id="review-badge" class="nav-badge">0</span></a>
+      <a href="#vocabulary" data-view="vocabulary"><span aria-hidden="true">字</span> My vocabulary</a>
     </nav>
-    <div class="sidebar-note"><span lang="zh">学而时习之</span><p>Lernen. Wiederholen.<br>Schritt für Schritt wachsen.</p></div>
-    <div class="profile"><span class="avatar">Du</span><div>Deine Mandarin-Reise<small>Anfänger · A0 → A1-Grundlagen</small></div></div>
+    <div class="sidebar-note"><span lang="zh">学而时习之</span><p>Learn. Review.<br>Grow one step at a time.</p></div>
+    <div class="profile"><span class="avatar">You</span><div>Your Mandarin journey<small>Beginner · A0 → A1 foundations</small></div></div>
   </aside>
   <main>
-    <header class="topbar"><span>DEIN PERSÖNLICHER LERNRAUM</span><div><span class="local-dot"></span> Fortschritt auf diesem Gerät <button id="theme-toggle" class="icon-button" type="button" aria-label="Darkmode aktivieren" aria-pressed="false">☾</button><button id="settings" class="icon-button" aria-label="Speicher und Einstellungen">⚙</button></div></header>
+    <header class="topbar"><span>YOUR PERSONAL LEARNING SPACE</span><div><span class="local-dot"></span> Progress on this device <button id="theme-toggle" class="icon-button" type="button" aria-label="Enable dark mode" aria-pressed="false">☾</button><button id="settings" class="icon-button" aria-label="Storage and settings">⚙</button></div></header>
     <div id="content"></div>
-    <footer>Mit Neugier lernen, mit Wiederholung wachsen. <span>简体中文 · Vereinfachte Schriftzeichen</span></footer>
+    <footer>Learn with curiosity. Grow through review. <span>简体中文 · Simplified characters</span></footer>
   </main>
   <dialog id="lesson-dialog" aria-labelledby="lesson-title"></dialog>
   <div id="toast" role="status" aria-live="polite"></div>

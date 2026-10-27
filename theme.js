@@ -14,8 +14,8 @@
     if (button) {
       button.textContent = dark ? '☀' : '☾';
       button.setAttribute('aria-pressed', String(dark));
-      button.setAttribute('aria-label', dark ? 'Hellmodus aktivieren' : 'Darkmode aktivieren');
-      button.title = dark ? 'Zum hellen Design wechseln' : 'Zum dunklen Design wechseln';
+      button.setAttribute('aria-label', dark ? 'Enable light mode' : 'Enable dark mode');
+      button.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
     }
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#14221e' : '#173f37');
   }

@@ -1,9 +1,15 @@
 {
-  "name": "mandarin-schritt-fuer-schritt",
+  "name": "hao-mandarin",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Mandarin-Lernpfad für deutschsprachige Anfänger",
-  "scripts": { "start": "node server.js", "test": "node --test", "build": "node scripts/build.js" },
-  "engines": { "node": ">=22" }
+  "description": "An English-language Mandarin learning app with a guided course, exercises and dark mode.",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "build": "node scripts/build.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
 }
