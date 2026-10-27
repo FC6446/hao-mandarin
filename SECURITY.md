@@ -18,6 +18,14 @@ Local progress is a convenience, not trusted evidence of achievement. A visitor 
 
 ## Publishing safely
 
+### Offline distribution
+
+`Hao.html` is a separate self-contained build for direct opening from disk. It embeds the course, CSS and JavaScript. A meta Content Security Policy authorises only the exact embedded script/style hashes, denies external resource loading and outgoing connections, and does not require `unsafe-inline` or `unsafe-eval`. It has no listening server or installation step. Share the file with recipients instead of a localhost URL.
+
+Local files cannot send HTTP security headers, including HSTS and frame-ancestors; those controls only apply to the hosted edition. Local-file storage is browser-dependent. Progress backup files are size-limited, parsed as JSON, validated, sanitised and applied only after explicit replacement confirmation. Backup contents are never executed. Only open copies from a source you trust; CSP is not a signature and cannot prove that a downloaded file is authentic. Editing the generated file changes the script/style hashes and can prevent it from running; rebuild it from source instead.
+
+### HTTPS hosting (optional)
+
 1. Run `node --test` and `node scripts/build.js` with a supported, patched Node.js version.
 2. Deploy **only `dist/`** to an HTTPS static host. Never use the repository root as the public document root or expose the local preview server directly.
 3. Cloudflare Pages can read the generated `_headers` file. Use build command `node scripts/build.js` and output directory `dist`. For another host, configure every header from `dist/_headers` through that provider's settings. `_headers` is not a universal web-server configuration.

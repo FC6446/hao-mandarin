@@ -21,3 +21,18 @@ export function isUnlocked(index, state, lessons) { return index === 0 || state.
 export function normalizeAnswer(value) { return value.normalize('NFC').toLocaleLowerCase('en').trim().replace(/\s+/g,''); }
 export function matchesAnswer(value, answers) { return answers.some(answer => normalizeAnswer(value) === normalizeAnswer(answer)); }
 export function localDay(date = new Date()) { return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`; }
+export function createProgressBackup(state) {
+  return JSON.stringify({app:'hao-mandarin',version:1,progress:state},null,2);
+}
+export function parseProgressBackup(text,ids,reviewKeys) {
+  if(typeof text!=='string'||text.length>100000)throw new Error('Invalid progress backup.');
+  const backup=JSON.parse(text);
+  const progress=backup?.progress;
+  if(backup?.app!=='hao-mandarin'||backup.version!==1||!progress||
+    !Array.isArray(progress.completed)||!Array.isArray(progress.activity)||
+    !progress.results||typeof progress.results!=='object'||Array.isArray(progress.results)||
+    !progress.reviews||typeof progress.reviews!=='object'||Array.isArray(progress.reviews)) {
+    throw new Error('Invalid progress backup.');
+  }
+  return sanitizeProgress(progress,ids,reviewKeys);
+}

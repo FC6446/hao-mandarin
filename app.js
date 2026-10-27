@@ -1,5 +1,5 @@
 import { lessons, sections, vocabulary } from './course.js';
-import { STORAGE_KEY, emptyProgress, sanitizeProgress, isUnlocked, matchesAnswer, localDay } from './progress.js';
+import { STORAGE_KEY, emptyProgress, sanitizeProgress, isUnlocked, matchesAnswer, localDay, createProgressBackup, parseProgressBackup } from './progress.js';
 import { escapeHTML as escape } from './html.js';
 
 const $ = s => document.querySelector(s);
@@ -105,6 +105,36 @@ function startReview() {
 }
 $('#settings').addEventListener('click',()=>{
  showDialog(`<p class="eyebrow">YOUR DEVICE, YOUR PROGRESS</p><h2 id="lesson-title">Local storage</h2><p>Completed lessons, latest results, correct word reviews and active learning days are stored in this browser. There is no account or synchronisation. Clearing browser data deletes your progress.</p><p>${storageAvailable?'Browser storage is available.':'Browser storage is unavailable. Progress will last only for this session.'}</p><button id="reset-progress" class="button danger">Reset learning progress</button><div id="reset-confirm"></div>`);
+ const backupPanel=document.createElement('section');
+ backupPanel.className='backup-panel';
+ const title=document.createElement('h3');title.textContent='Keep a progress backup';
+ const details=document.createElement('p');
+ details.textContent=location.protocol==='file:'
+   ? 'This copy works offline. Local-file storage depends on your browser and file location. Download a backup before moving or replacing this file, or switching browsers.'
+   : 'Download a backup to move your progress to another browser or the offline HTML copy.';
+ const download=document.createElement('button');download.className='button';download.textContent='Download progress backup';
+ download.addEventListener('click',()=>{
+   const url=URL.createObjectURL(new Blob([createProgressBackup(state)],{type:'application/json'}));
+   const link=document.createElement('a');link.href=url;link.download=`hao-progress-${localDay()}.json`;
+   document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ });
+ const label=document.createElement('label');label.className='backup-import';label.textContent='Import progress backup (.json)';
+ const fileInput=document.createElement('input');fileInput.type='file';fileInput.accept='.json,application/json';label.append(fileInput);
+ const importStatus=document.createElement('div');importStatus.setAttribute('role','status');
+ fileInput.addEventListener('change',async()=>{
+   importStatus.replaceChildren();
+   const file=fileInput.files[0];if(!file)return;
+   try {
+     if(file.size>100000)throw new Error('Too large');
+     const imported=parseProgressBackup(await file.text(),lessons.map(l=>l.id),vocabulary.map(w=>w[0]));
+     const preview=document.createElement('p');preview.textContent=`This backup contains ${imported.completed.length} completed lessons. Replace the progress in this browser?`;
+     const confirm=document.createElement('button');confirm.className='button';confirm.textContent='Replace progress with backup';
+     confirm.addEventListener('click',()=>{state=imported;save();render();dialog.close();toast('Progress backup imported.');},{once:true});
+     importStatus.append(preview,confirm);
+   }catch {importStatus.textContent='Please choose a valid Hǎo progress backup under 100 KB. Your current progress has not changed.';}
+   fileInput.value='';
+ });
+ backupPanel.append(title,details,download,label,importStatus);dialog.append(backupPanel);
  $('#reset-progress').addEventListener('click',()=>{
   $('#reset-confirm').innerHTML='<p>Really delete all local learning results?</p><button id="confirm-reset" class="button danger">Yes, delete progress</button>';
   $('#confirm-reset').addEventListener('click',()=>{state=emptyProgress();try{localStorage.removeItem(STORAGE_KEY);}catch{}render();dialog.close();toast('Your learning path starts again at lesson 1.');});
@@ -112,4 +142,8 @@ $('#settings').addEventListener('click',()=>{
 });
 window.addEventListener('hashchange',()=>{render();window.scrollTo(0,0);});
 render();
+if(location.protocol==='file:') {
+ const note=document.createElement('span');note.textContent='Offline copy · No installation or internet needed · Back up progress in settings';
+ document.querySelector('footer').append(note);
+}
 if(!storageAvailable)toast('Browser storage is unavailable. Progress will last only for this session.');

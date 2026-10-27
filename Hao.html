@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-w9hXUAOuaLBgmiHU60ylIfYY6iHRRO9/PUPy3fdBUGE=' 'sha256-nlZujXkBwalNEM91apvRhaiMWC5R3EWvaBzuym/Ox10='; style-src 'sha256-v2QRScKruDIjUtRz0WGowgcNVDFQ/lybeVM82eiuTEM='; img-src data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'"><meta name="referrer" content="no-referrer"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f37"><meta name="description" content="Learn Mandarin step by step: Pinyin, tones, Chinese characters and your first conversation.">
+  <title>Hǎo — Your path to Mandarin</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23173f37'/%3E%3Ctext x='8' y='48' font-size='46' fill='%23fffbed'%3E好%3C/text%3E%3C/svg%3E">
+  <script>// Set the theme before styles load to avoid a bright flash.
+(() => {
+  const key = 'hao-theme-v1';
+  const system = window.matchMedia('(prefers-color-scheme: dark)');
+  let preference = null;
+  try {
+    const saved = localStorage.getItem(key);
+    if (saved === 'light' || saved === 'dark') preference = saved;
+  } catch { /* The theme still works when browser storage is blocked. */ }
+  function apply() {
+    const dark = preference ? preference === 'dark' : system.matches;
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    const button = document.getElementById('theme-toggle');
+    if (button) {
+      button.textContent = dark ? '☀' : '☾';
+      button.setAttribute('aria-pressed', String(dark));
+      button.setAttribute('aria-label', dark ? 'Enable light mode' : 'Enable dark mode');
+      button.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+    }
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#14221e' : '#173f37');
+  }
+  apply();
+  system.addEventListener('change', () => { if (!preference) apply(); });
+  document.addEventListener('DOMContentLoaded', () => {
+    apply();
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      preference = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem(key, preference); } catch { /* Session-only fallback. */ }
+      apply();
+    });
+  });
+})();
+</script>
+  <style>:root{font-family:Inter,"Segoe UI",Arial,sans-serif;color:#243c35;background:#f7f8f4;font-synthesis:none;--green:#173f37;--muted:#79827a;--line:#e3e7df}*{box-sizing:border-box}body{margin:0}button,input,a{-webkit-tap-highlight-color:transparent}button,input{font:inherit}button,a{touch-action:manipulation}button{cursor:pointer}a{color:inherit;text-decoration:none}button:disabled{cursor:not-allowed}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #d9943e;outline-offset:4px}[hidden]{display:none!important}.sidebar{width:242px;position:fixed;inset:0 auto 0 0;padding:43px 25px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;background:#fffefa}.brand{display:flex;align-items:center;font-size:39px;font-weight:750;letter-spacing:-2px;gap:10px}.brand-symbol{display:grid;place-items:center;background:var(--green);color:#fffbe9;border-radius:12px;width:46px;height:48px;font:29px Georgia,serif;letter-spacing:0}.brand-dot{margin-left:-9px;color:#c58c4e}.brand-caption{font-size:8px;letter-spacing:1.4px;margin:17px 0 48px;color:#7e877e}.sidebar nav{display:grid;gap:9px}.sidebar nav a{padding:14px 12px;font-size:13px;display:flex;align-items:center;gap:12px;border-radius:7px;color:#6e7970}.sidebar nav a>span:first-child{font-size:20px;width:22px;text-align:center}.sidebar nav a.active{background:#eaf0e5;color:#234b3c;font-weight:650}.nav-badge{margin-left:auto;border-radius:4px;background:#d9e3d2;padding:2px 6px;font-size:10px}.sidebar-note{margin-top:auto;padding:32px 13px;color:#8d968a}.sidebar-note>span{font:22px Georgia,serif;letter-spacing:5px;color:#74856e}.sidebar-note p{font-size:11px;line-height:1.8}.profile{display:flex;align-items:center;border-top:1px solid var(--line);padding-top:21px;gap:10px;font-size:11px}.avatar{background:#eadcc5;border-radius:50%;width:34px;height:34px;display:grid;place-items:center;font-size:11px}.profile small{display:block;font-size:9px;color:#8d9289;margin-top:5px}main{margin-left:242px;padding:0 48px;max-width:1650px}.topbar{height:83px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);font-size:9px;letter-spacing:1.5px;color:#7c857d}.topbar>div{display:flex;align-items:center;gap:8px;letter-spacing:0;font-size:10px}.local-dot{width:5px;height:5px;background:#7a9961;border-radius:50%}.icon-button{border:1px solid var(--line);border-radius:50%;background:transparent;color:#7e887c;margin-left:10px;width:30px;height:30px;font-size:16px}.page-heading{display:flex;justify-content:space-between;align-items:center;padding:38px 0 28px}.eyebrow{font-size:9px;letter-spacing:1.9px;font-weight:700;color:#829273;margin:0 0 14px}h1{font-size:clamp(26px,2.7vw,39px);letter-spacing:-1.5px;line-height:1.17;margin:0 0 16px;font-weight:650}h1>span{color:#b78948}.page-heading p:not(.eyebrow){font-size:12px;color:#7f877d;line-height:1.9;margin:0}.level-pill{font-size:10px;border:1px solid #dfdfcd;border-radius:20px;padding:9px 13px;white-space:nowrap;color:#7c8069;background:#f8f7ee}.hero{background:#173f37;min-height:290px;border-radius:12px;display:flex;overflow:hidden;position:relative;color:#fffbed}.hero-copy{padding:32px 35px;position:relative;z-index:1;flex:1}.hero .eyebrow{color:#afc3a9;font-size:8px}.hero h2{font:500 clamp(26px,2.7vw,38px)/1.14 Georgia,"Times New Roman",serif;letter-spacing:-.7px;margin:0 0 17px}.hero p:not(.eyebrow){font-size:11px;color:#b9cbc0;line-height:1.9;margin-bottom:22px}.button{background:var(--green);color:#fffdf2;border:none;border-radius:6px;padding:13px 20px;font-size:12px;font-weight:650;display:inline-flex;align-items:center;justify-content:center;gap:25px;min-height:43px}.button:hover{filter:brightness(1.13)}.button.light{background:#edf1d9;color:#244336}.hero small{display:block;color:#a8bba9;font-size:9px;margin-top:13px}.hero-art{width:36%;min-width:210px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;isolation:isolate}.orbit{position:absolute;width:280px;height:280px;border:1px solid #6d8c7333;border-radius:50%;z-index:-1}.orbit-two{width:350px;height:350px}.art-character{font:158px/1.25 "KaiTi","STKaiti","Noto Serif CJK SC",serif;color:#dce8be;transform:rotate(-9deg)}.art-small{letter-spacing:7px;font:12px Georgia,serif;color:#9db799;position:absolute;right:30px;top:36px;writing-mode:vertical-rl}.art-caption{font-size:10px;color:#afc3a9;letter-spacing:3px;margin-top:4px}.spark{position:absolute;bottom:32px;right:28px;color:#d4b578;font-size:24px}.stats{display:grid;grid-template-columns:1fr 1fr .9fr 1.3fr;padding:25px 0;gap:20px;margin-bottom:30px;border-bottom:1px solid var(--line)}.stats>div{display:flex;align-items:center;gap:12px}.stat-icon{display:grid;place-items:center;width:37px;height:39px;background:#e9eee1;border-radius:9px;color:#758c61;font-size:21px}.stat-icon.peach{background:#f4ebe0;color:#b89570}.stat-icon.lavender{background:#eae9f2;color:#9890ae}.stats strong{font-size:20px;font-weight:650;display:block}.stats strong>span{font-size:12px;color:#9a9f94;font-weight:400}.stats small{font-size:9px;color:#91978c;display:block;margin-top:4px}.stats .total-progress{display:block;border-left:1px solid var(--line);padding:4px 0 4px 22px}.total-progress>div{display:flex;justify-content:space-between;align-items:center;font-size:9px}.total-progress strong{font-size:13px;color:#687d4e}.total-progress b{font-weight:400;color:#858e7c}progress{appearance:none;border:0;background:#e5e9df;width:100%;height:5px;border-radius:6px;overflow:hidden;margin-top:15px}progress::-webkit-progress-bar{background:#e5e9df}progress::-webkit-progress-value{background:#8caa63;border-radius:6px}progress::-moz-progress-bar{background:#8caa63}.path-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:21px}.path-heading .eyebrow{font-size:8px;letter-spacing:1.8px;margin-bottom:10px}.path-heading h2{font-size:18px;font-weight:600;letter-spacing:-.4px;margin:0}.path-heading>span{font-size:9px;color:#90968b}.course-layout{display:grid;grid-template-columns:minmax(0,1fr) 238px;gap:25px}.chapters{min-width:0}.chapter{border:1px solid var(--line);border-radius:9px;background:#fffefa;margin-bottom:22px;overflow:hidden}.chapter-heading{display:flex;gap:12px;align-items:center;background:#edf1e7;padding:18px}.chapter-number{border:1px solid #d5ddcb;padding:8px;border-radius:6px;font-size:12px;color:#7f906e}.chapter-heading h3{font-size:13px;margin:0 0 5px;font-weight:650}.chapter-heading p{margin:0;font-size:9px;color:#8b9482}.chapter-count{margin-left:auto;font-size:10px;color:#8a987e}.lesson-list{padding:5px 15px}.lesson{border:0;background:transparent;width:100%;display:flex;align-items:center;text-align:left;padding:17px 5px;gap:13px;position:relative;color:#3d4c40;min-height:78px}.lesson+.lesson{border-top:1px solid #edf0e8}.lesson-node{display:grid;place-items:center;flex-shrink:0;width:34px;height:34px;border:1px solid #dfe4d7;border-radius:50%;font-size:11px;background:#f7f8f1;color:#a2ac98}.lesson.current .lesson-node,.lesson.done .lesson-node{background:#e3ebd4;border-color:#d0ddbc;color:#54703b}.lesson.current .lesson-node{outline:3px solid #f1f4e9}.lesson-info{flex:1}.lesson-info strong{font-size:11px;font-weight:600;display:block}.lesson-info small{font-size:9px;color:#959c8f;display:block;margin-top:7px}.next-tag{display:inline-block;font-size:6px;color:#879b64;background:#ecf1e3;padding:4px 5px;border-radius:3px;margin-left:6px;vertical-align:middle;letter-spacing:.4px}.lesson-time{font-size:9px;color:#a1a796;white-space:nowrap}.lesson-arrow{font-size:15px;color:#8a9c74;min-width:35px;text-align:right}.lesson:disabled .lesson-arrow{font-size:8px;color:#a3aa9b}.lesson:disabled{opacity:.62}.lesson:not(:disabled):hover{background:#f3f6ec;border-radius:5px}.orange .chapter-heading{background:#f4ede1}.orange .chapter-number{border-color:#e9dcc5;color:#b79a70}.purple .chapter-heading{background:#eeecf4}.purple .chapter-number{border-color:#ded7ea;color:#9d91af}.daily-card{border:1px solid #e4e4d5;border-radius:9px;padding:23px 20px;text-align:center;background:#f0f0e5}.mini-label{font-size:8px;letter-spacing:1.5px;color:#8b9379}.daily-hanzi{font:54px/1.4 "KaiTi","Noto Serif CJK SC",serif;display:block;margin-top:13px;color:#4b6040;letter-spacing:8px}.daily-pinyin{font-size:14px;color:#8a9b6b;letter-spacing:3px}.daily-card h3{font:20px Georgia,serif;letter-spacing:-.3px;margin:20px 0 10px}.daily-card p{font-size:10px;line-height:1.9;color:#90947f}.tone-chips{display:flex;gap:8px;justify-content:center;padding-top:13px;margin-top:17px;border-top:1px solid #e0e2d2;font-size:10px;color:#75855b}.tone-chips b{font-size:8px;font-weight:400;margin-left:4px;color:#98a085}.note-card{padding:24px 5px}.note-card>span{font-size:26px;color:#be9959}.note-card h3{font-size:12px;font-weight:600}.note-card p{font-size:10px;line-height:1.9;color:#919787}.note-card a{font-size:10px;display:flex;justify-content:space-between;margin-top:18px}.audio-note{display:flex;align-items:start;gap:7px;border-top:1px solid var(--line);padding:17px 4px;font-size:10px;color:#8a9382;line-height:1.7}footer{border-top:1px solid var(--line);padding:22px 0 30px;margin-top:30px;font-size:9px;color:#939b8c;display:flex;justify-content:space-between;gap:20px}.review-hero{text-align:center;background:#eaf0e2;border:1px solid #dce4d1;padding:45px 25px;border-radius:12px;margin-bottom:28px}.review-symbol{font-size:50px;color:#74945b}.review-hero h2{font:30px Georgia,serif}.review-hero p,.chapter>p{font-size:13px;line-height:1.7;color:#7d8977}.chapter>h2,.chapter>p{margin:24px}.repeat-grid{padding:0 24px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.repeat-grid button{border:1px solid var(--line);background:#f8f9f2;border-radius:8px;padding:20px;text-align:left;color:var(--green)}.repeat-grid span{font:30px Georgia,serif;display:block;margin-bottom:15px}.repeat-grid strong{font-size:12px;display:block}.repeat-grid small{font-size:10px;display:block;margin-top:8px;color:#89937f}.search-label{display:block;font-size:12px;margin-bottom:18px}.search-label input,.input-label input{display:block;margin-top:10px;width:100%;max-width:550px;background:#fffefa;border:1px solid #cdd7c5;border-radius:7px;padding:14px;color:var(--green)}#search-count{font-size:12px;color:#88927f}.word-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.word-card{background:#fffefa;border:1px solid var(--line);border-radius:10px;padding:24px}.word-card>div{display:flex;justify-content:space-between;align-items:center;gap:8px}.word-hanzi{font:34px Georgia,serif}.learned-tag{font-size:9px;color:#6c8556}.pinyin{color:#899c66;font-size:15px;letter-spacing:1px}.word-card h3{font-size:14px}.word-card hr{border:0;border-top:1px solid var(--line);margin:20px 0}.word-card small{font-size:11px;line-height:1.7;color:#8d9584}.word-card p[lang]{font-size:17px}dialog{border:1px solid #dfe5d6;border-radius:15px;padding:38px;max-width:650px;width:calc(100% - 32px);max-height:90dvh;color:#294637;background:#fffefa;box-shadow:0 30px 100px #143c3633}dialog::backdrop{background:#152d296e;backdrop-filter:blur(4px)}.close-dialog{position:absolute;right:15px;top:10px;border:0;background:transparent;color:#8a957f;font-size:28px;width:35px;height:35px}dialog h2{font:32px/1.2 Georgia,"Times New Roman",serif;margin:0 20px 24px 0}dialog h3{font-size:17px}dialog p{font-size:14px;line-height:1.9}.lesson-banner{background:#edf2e6;padding:12px;text-align:center;font:62px/1.5 "KaiTi",serif;border-radius:8px;color:#77945b}.lesson-tip{font-size:12px;line-height:1.8;padding:16px;background:#f4f0e1;color:#7d7453;border-radius:7px;margin:22px 0}.dialogue{display:grid;gap:10px;margin-bottom:25px}.dialogue>div{background:#f0f4eb;border-radius:8px;padding:14px}.dialogue strong{display:block;font-size:19px}.dialogue span{display:block;color:#879972;font-size:13px;margin-top:7px}.dialogue p{margin:5px 0 0;color:#76836b;font-size:12px}dialog .button{margin-top:18px}.question{line-height:1.7;margin:25px 0}.choices{display:grid;gap:12px}.choices label{display:flex;align-items:center;border:1px solid #dce4d3;border-radius:8px;padding:16px;gap:12px;cursor:pointer;font-size:14px}.choices label:has(input:checked){background:#e9f0e0;border-color:#7d9b61}.choices input{accent-color:#476a36;width:17px;height:17px}.input-label{font-size:13px}#input-help{display:block;font-size:11px;line-height:1.7;color:#919984;margin-top:10px}.feedback{padding:15px;border-radius:8px;margin-top:20px;font-size:13px}.feedback p{font-size:12px;line-height:1.7;margin-bottom:0}.feedback.correct{background:#e8f0de}.feedback.incorrect{background:#f7ebda;color:#89603e}.completion-icon{font-size:60px;color:#9caa6b;margin-bottom:20px}.result-score{font-size:50px!important;margin:0}.result-score span{font-size:24px;color:#9aa68e}.text-button{border:0;background:transparent;padding:14px;color:#889578}.danger{background:#994d40}#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#203f36;color:white;padding:14px 20px;border-radius:8px;font-size:12px;max-width:90vw;opacity:0;pointer-events:none;transition:opacity .2s;z-index:10}#toast.visible{opacity:1}body:has(dialog[open]){overflow:hidden}
+@media(min-width:1500px){main{padding:0 65px}.hero{min-height:325px}.hero-copy{padding:40px}.course-layout{grid-template-columns:minmax(0,1fr) 280px}.lesson{padding:21px 10px}.lesson-info strong{font-size:13px}.lesson-info small{font-size:11px}.hero p:not(.eyebrow){font-size:13px}}
+@media(max-width:1150px){.sidebar{width:205px;padding:35px 17px 20px}main{margin-left:205px;padding:0 30px}.brand-caption{font-size:7px}.course-layout{grid-template-columns:minmax(0,1fr) 200px;gap:18px}.stats{gap:12px}.stat-icon{width:31px;height:34px}.stats>div{gap:8px}.stats small{font-size:8px}.stats .total-progress{padding-left:13px}.hero-copy{padding:28px}.hero-art{min-width:180px}.art-character{font-size:130px}.level-pill{display:none}.word-grid{grid-template-columns:repeat(2,1fr)}.next-tag{display:none}.chapter-heading p{line-height:1.6}.chapter-heading{padding:14px}.lesson-list{padding:5px 10px}.lesson{gap:10px}.lesson-time{display:none}}
+@media(max-width:850px){.sidebar{width:175px;padding:28px 12px 20px}.sidebar nav a{font-size:11px;gap:8px;padding:12px 9px}.sidebar-note{padding:25px 8px}.profile{font-size:9px}.profile small{font-size:8px}.brand-caption{font-size:6px;letter-spacing:1px}main{margin-left:175px;padding:0 24px}.topbar>span{font-size:7px;letter-spacing:1px}.topbar>div{font-size:8px}.course-layout{display:block}.path-aside{display:grid;grid-template-columns:1fr 1fr;gap:20px}.audio-note{grid-column:1/-1}.stats{grid-template-columns:repeat(3,1fr)}.stats .total-progress{grid-column:1/-1;border-left:0;padding:8px 0 0}.total-progress progress{margin-top:8px}.hero-art{min-width:150px;width:30%}.art-character{font-size:110px}.art-small{right:15px}.hero h2{font-size:29px}.hero-copy{padding:25px}.hero p br{display:none}.path-heading{gap:15px}.path-heading>span{white-space:nowrap}.path-heading h2{font-size:16px}.repeat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.sidebar{position:static;width:auto;border-right:0;border-bottom:1px solid var(--line);padding:15px 20px 0;display:block}.brand{font-size:30px}.brand-symbol{width:34px;height:36px;border-radius:8px;font-size:23px}.brand-caption,.sidebar-note,.profile{display:none}.sidebar nav{display:flex;margin-top:14px;gap:5px;justify-content:space-between}.sidebar nav a{font-size:10px;gap:6px;border-radius:6px 6px 0 0;padding:12px 9px}.sidebar nav a>span:first-child{font-size:16px;width:auto}.nav-badge{font-size:8px}main{margin:0;padding:0 20px}.topbar{height:50px}.topbar>span{font-size:6px;max-width:100px;line-height:1.7}.topbar>div{font-size:8px}.page-heading{padding:28px 0 22px}h1{font-size:29px;letter-spacing:-1px}.eyebrow{font-size:7px;letter-spacing:1.5px}.page-heading p:not(.eyebrow){font-size:11px}.desktop-break{display:none}.hero{min-height:285px}.hero-copy{padding:26px 22px}.hero h2{font-size:28px}.hero p:not(.eyebrow){font-size:10px;max-width:220px}.hero-art{position:absolute;right:-30px;bottom:0;width:130px;min-width:0;height:190px;opacity:.3}.hero .button{position:relative}.hero-art .orbit{width:220px;height:220px}.hero-art .orbit-two{width:300px;height:300px}.hero-art .art-caption,.art-small,.spark{display:none}.stats{gap:6px;padding:20px 0;margin-bottom:24px}.stat-icon{width:28px;height:32px;font-size:18px}.stats>div{gap:6px}.stats strong{font-size:18px}.stats strong>span{font-size:10px}.stats small{font-size:7px;line-height:1.5}.path-heading{display:block}.path-heading>span{display:block;margin-top:10px}.chapter-heading{padding:16px 12px}.chapter-heading p{font-size:8px}.lesson{min-height:78px;padding:16px 3px;gap:10px}.lesson-info strong{font-size:11px}.lesson-info small{font-size:9px}.lesson-arrow{min-width:35px}.lesson-node{width:30px;height:30px;font-size:10px}.lesson-time{display:block;font-size:8px}.path-aside{gap:15px}.daily-card{padding:22px 12px}.daily-hanzi{font-size:44px}.daily-card h3{font-size:18px}.tone-chips{font-size:9px;gap:5px}.tone-chips b{font-size:7px;margin-left:0}.note-card p{font-size:10px}footer{display:block;font-size:8px;line-height:1.8}footer span{display:block;margin-top:7px}.word-grid{gap:12px}.word-card{padding:15px}.word-hanzi{font-size:28px}.word-card h3{font-size:12px}.learned-tag{font-size:7px}.pinyin{font-size:13px}.word-card>div{flex-wrap:wrap}.word-card p[lang]{font-size:15px}.review-hero h2{font-size:26px}.repeat-grid{padding:0 15px 15px;gap:10px}.repeat-grid button{padding:15px}.repeat-grid strong{font-size:11px}dialog{padding:30px 22px}dialog h2{font-size:28px}dialog p{font-size:13px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.backup-panel{margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}.backup-import{display:block;margin-top:22px;font-size:13px}.backup-import input{display:block;margin-top:10px;max-width:100%}footer{flex-wrap:wrap}
+
+:root { color-scheme: light; }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  color: #e0e8db;
+  background: #14221e;
+  --green: #a8c88c;
+  --line: #34473c;
+  --muted: #adb9a5;
+}
+[data-theme="dark"] .sidebar,
+[data-theme="dark"] .chapter,
+[data-theme="dark"] .word-card,
+[data-theme="dark"] dialog { background: #1b2c25; color: #e0e8db; border-color: var(--line); }
+[data-theme="dark"] .sidebar nav a { color: #bac7b1; }
+[data-theme="dark"] .sidebar nav a.active,
+[data-theme="dark"] .nav-badge { background: #304731; color: #d6e8c5; }
+[data-theme="dark"] .brand-symbol { background: #355640; }
+[data-theme="dark"] .profile .avatar { background: #564b36; color: #f1ddba; }
+[data-theme="dark"] .icon-button { color: #c7d5bb; }
+[data-theme="dark"] .topbar,
+[data-theme="dark"] .brand-caption,
+[data-theme="dark"] .page-heading p:not(.eyebrow),
+[data-theme="dark"] .sidebar-note,
+[data-theme="dark"] .sidebar-note>span,
+[data-theme="dark"] .profile small,
+[data-theme="dark"] .stats small,
+[data-theme="dark"] .stats strong>span,
+[data-theme="dark"] .total-progress b,
+[data-theme="dark"] .path-heading>span,
+[data-theme="dark"] .chapter-heading p,
+[data-theme="dark"] .chapter-count,
+[data-theme="dark"] .lesson-info small,
+[data-theme="dark"] .lesson-time,
+[data-theme="dark"] .lesson:disabled .lesson-arrow,
+[data-theme="dark"] .note-card p,
+[data-theme="dark"] .audio-note,
+[data-theme="dark"] footer,
+[data-theme="dark"] .word-card small,
+[data-theme="dark"] .review-hero p,
+[data-theme="dark"] .chapter>p,
+[data-theme="dark"] .repeat-grid small,
+[data-theme="dark"] #search-count,
+[data-theme="dark"] #input-help { color: #acbaa2; }
+[data-theme="dark"] .eyebrow,
+[data-theme="dark"] .total-progress strong,
+[data-theme="dark"] .learned-tag,
+[data-theme="dark"] .pinyin { color: #b4cb97; }
+[data-theme="dark"] .level-pill { background: #303829; border-color: #4c553e; color: #c5cba9; }
+[data-theme="dark"] .hero { background: #1d493d; }
+[data-theme="dark"] .button { background: #adc98d; color: #16291b; }
+[data-theme="dark"] .button.light { background: #e0e9c6; color: #244336; }
+[data-theme="dark"] .stat-icon,
+[data-theme="dark"] .chapter-heading,
+[data-theme="dark"] .lesson-node { background: #2a3d2d; border-color: #47603c; color: #bbd09d; }
+[data-theme="dark"] .chapter-number { border-color: #47603c; color: #bbd09d; }
+[data-theme="dark"] .stat-icon.peach,
+[data-theme="dark"] .orange .chapter-heading { background: #40392b; color: #d8be97; }
+[data-theme="dark"] .orange .chapter-number { border-color: #62523a; color: #d8be97; }
+[data-theme="dark"] .stat-icon.lavender,
+[data-theme="dark"] .purple .chapter-heading { background: #363447; color: #c7bddb; }
+[data-theme="dark"] .purple .chapter-number { border-color: #5a526f; color: #c7bddb; }
+[data-theme="dark"] progress,
+[data-theme="dark"] progress::-webkit-progress-bar { background: #384936; }
+[data-theme="dark"] .lesson { color: #dce5d5; }
+[data-theme="dark"] .lesson+.lesson { border-color: #2f4034; }
+[data-theme="dark"] .lesson:disabled { opacity: .8; }
+[data-theme="dark"] .lesson.current .lesson-node,
+[data-theme="dark"] .lesson.done .lesson-node { background: #42613b; border-color: #78975b; color: #e3edc9; }
+[data-theme="dark"] .lesson.current .lesson-node { outline-color: #25392a; }
+[data-theme="dark"] .next-tag { background: #344c30; color: #c6dca7; }
+[data-theme="dark"] .lesson-arrow { color: #b7ce99; }
+[data-theme="dark"] .lesson:not(:disabled):hover { background: #2b402e; }
+[data-theme="dark"] .daily-card { background: #2b382a; border-color: #43523a; }
+[data-theme="dark"] .daily-hanzi { color: #cfdda9; }
+[data-theme="dark"] .daily-pinyin,
+[data-theme="dark"] .mini-label,
+[data-theme="dark"] .daily-card p,
+[data-theme="dark"] .tone-chips,
+[data-theme="dark"] .tone-chips b { color: #bdc9a4; }
+[data-theme="dark"] .tone-chips { border-color: #46543b; }
+[data-theme="dark"] .review-hero,
+[data-theme="dark"] .repeat-grid button,
+[data-theme="dark"] .lesson-banner,
+[data-theme="dark"] .dialogue>div { background: #2a3d2c; border-color: #435a39; color: #d5e4bd; }
+[data-theme="dark"] .dialogue span,
+[data-theme="dark"] .dialogue p { color: #b9cca3; }
+[data-theme="dark"] .search-label input,
+[data-theme="dark"] .input-label input { background: #15261e; border-color: #536a46; color: #e0e8db; }
+[data-theme="dark"] input::placeholder { color: #a9b39e; }
+[data-theme="dark"] .choices label { border-color: #536449; }
+[data-theme="dark"] .choices label:has(input:checked) { background: #354d30; border-color: #a3bf7d; }
+[data-theme="dark"] .choices input { accent-color: #b7cd93; }
+[data-theme="dark"] .lesson-tip,
+[data-theme="dark"] .feedback.incorrect { background: #483c29; color: #ead4ab; }
+[data-theme="dark"] .feedback.correct { background: #304c30; color: #d9ecc3; }
+[data-theme="dark"] .danger { background: #9b5145; color: #fff0e7; }
+[data-theme="dark"] .close-dialog,
+[data-theme="dark"] .text-button { color: #c4d4b3; }
+[data-theme="dark"] dialog::backdrop { background: #0009; }
+[data-theme="dark"] #toast { background: #dce8cb; color: #193023; }
+@media(max-width:600px) { .topbar .icon-button { margin-left: 3px; } .topbar>div { gap: 5px; } }
+</style>
+
+
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#learn" aria-label="Hǎo home"><span class="brand-symbol" lang="zh">好</span> hǎo<span class="brand-dot">.</span></a>
+    <p class="brand-caption">ONE SMALL STEP. EVERY DAY.</p>
+    <nav aria-label="Main navigation">
+      <a href="#learn" data-view="learn"><span aria-hidden="true">▦</span> My learning path</a>
+      <a href="#review" data-view="review"><span aria-hidden="true">↻</span> Review <span id="review-badge" class="nav-badge">0</span></a>
+      <a href="#vocabulary" data-view="vocabulary"><span aria-hidden="true">字</span> My vocabulary</a>
+    </nav>
+    <div class="sidebar-note"><span lang="zh">学而时习之</span><p>Learn. Review.<br>Grow one step at a time.</p></div>
+    <div class="profile"><span class="avatar">You</span><div>Your Mandarin journey<small>Beginner · A0 → A1 foundations</small></div></div>
+  </aside>
+  <main>
+    <header class="topbar"><span>YOUR PERSONAL LEARNING SPACE</span><div><span class="local-dot"></span> Progress on this device <button id="theme-toggle" class="icon-button" type="button" aria-label="Enable dark mode" aria-pressed="false">☾</button><button id="settings" class="icon-button" aria-label="Storage and settings">⚙</button></div></header>
+    <div id="content"></div>
+    <footer>Learn with curiosity. Grow through review. <span>简体中文 · Simplified characters</span></footer>
+  </main>
+  <dialog id="lesson-dialog" aria-labelledby="lesson-title"></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+<script>(()=>{
+const choice = (prompt, options, answer, explanation) => ({ type:'choice', prompt, options, answer, explanation });
+const input = (prompt, answers, explanation) => ({ type:'input', prompt, answers, explanation });
+const sections = [
+ {title:'The foundations',description:'Explore the sounds and writing of Mandarin.',label:'01',color:'green'},
+ {title:'Your first sentences',description:'Turn individual words into small conversations.',label:'02',color:'orange'},
+ {title:'Everyday Mandarin',description:'Use your knowledge in real situations.',label:'03',color:'purple'}
+];
+const lessons = [
+ {id:'pinyin',section:0,title:'Hello, Mandarin!',subtitle:'Pinyin & your first sounds',glyph:'你好',minutes:6,
+ explanation:'Mandarin is the standard spoken form of Chinese. Hanzi are Chinese characters; Pinyin represents their pronunciation using Latin letters. 你好 means “hello” and is written nǐ hǎo in Pinyin. Pinyin is a pronunciation guide, not a translation. A syllable often contains an initial (its opening consonant) and a final (the remaining sounds). In mā, these are m and a. Some syllables, such as ài, have no initial.',
+ tip:'Do not read Pinyin exactly like English. q is roughly a strongly aspirated “ch”, while x is a soft, forward “sh” sound. These are only approximations.',
+ exercises:[choice('What does Pinyin represent?',['Pronunciation using Latin letters','The English meaning','A type of Chinese character'],0,'Pinyin helps you read the pronunciation of Hanzi.'),choice('What is the initial in mā?',['a','m','ā'],1,'m is the initial; a is the final.'),input('Copy the Pinyin syllable for 妈 (mā).',['mā','ma1'],'mā means “mum”. The number 1 is another way to enter the first tone.')]},
+ {id:'sounds',section:0,title:'Discover the sounds',subtitle:'Initials & finals',glyph:'拼',minutes:7,
+ explanation:'Initials include b, p, m, f, d, t, n and l. The main difference between b and p is aspiration: p has a stronger puff of air. Simple finals include a, o, e, i, u and ü; combined finals include ai, ei, ao, ou, an and ang. To approximate ü, say “ee” while rounding your lips. After j, q and x, the dots are omitted: xu still contains the ü sound.',
+ tip:'Hold a sheet of paper in front of your mouth as you say p. The puff of air should move it more than b does. Without audio, this is only an initial guide.',
+ exercises:[choice('Which initial has a stronger puff of air?',['b','p','m'],1,'p is aspirated: it has a clear puff of air.'),choice('Which letters form the final in máng, without its tone mark?',['m','áng','ang'],2,'The final is ang. The accent separately marks the tone.'),input('Complete the final: m + … = mā.',['a','ā'],'m + a forms ma; the tone mark makes it mā.')]},
+ {id:'tones',section:0,title:'One syllable, four tones',subtitle:'Tone contours & the neutral tone',glyph:'声',minutes:8,
+ explanation:'A tone is part of a word and can change its meaning: mā 妈 (mum) has a high, level first tone; má 麻 (hemp) has a rising second tone; mǎ 马 (horse) has a low third tone; mà 骂 (to scold) has a falling fourth tone. The neutral tone, as in ma 吗, is short and unstressed. In connected speech, a third tone is often simply low. Before another third tone, the first changes to a rising tone, as when you say nǐ hǎo.',
+ tip:'Audio is not available in this version. These exercises use written tone marks and visual contours. They do not test listening or replace a pronunciation model.',
+ exercises:[choice('Which tone belongs to má (↗)?',['First tone: high and level','Second tone: rising','Fourth tone: falling'],1,'The acute accent á marks the rising second tone.'),choice('Which syllable has a neutral tone?',['mǎ','mà','ma'],2,'The neutral tone has no tone mark.'),choice('Which contour matches the fourth tone in mà?',['→','↗','↘'],2,'The fourth tone falls clearly from high to low.')]},
+ {id:'reading',section:0,title:'Read Pinyin with confidence',subtitle:'Tone marks & short answers',glyph:'读',minutes:6,
+ explanation:'Tone marks appear over a vowel. a takes priority, then e; in ou the mark goes on o. Otherwise, it goes on the last vowel: nǐ, hǎo, liù, shuǐ. You can also use tone numbers in the input exercises: ni3 means nǐ. You can enter v for ü: lv4 means lǜ. Always learn a word together with its tone.',
+ tip:'你好 is written nǐ hǎo even though the first third tone changes when spoken before the next third tone.',
+ exercises:[input('Write nǐ using a tone number.',['ni3'],'The number 3 marks the third tone.'),choice('Which spelling belongs to 好, meaning “good”?',['hào','hǎo','hāo'],1,'好 means “good” here and is pronounced hǎo.'),input('Write “hello” in Pinyin (nǐ hǎo).',['nǐ hǎo','ni3 hao3'],'nǐ hǎo = 你好. Spaces separate the syllables in this exercise.')]},
+ {id:'characters',section:0,title:'Understand Chinese characters',subtitle:'Strokes & components',glyph:'字',minutes:8,
+ explanation:'Hanzi are characters, not alphabetic letters. A character usually represents one syllable and can carry meaning. Words can contain several characters, such as 学生 xuésheng (student). Useful stroke-order guidelines are top before bottom, left before right, and horizontal before vertical. There are exceptions. 一 is one stroke from left to right. For 二, write the top horizontal stroke, then the bottom one. For 三, write top, middle, then bottom. 好 contains 女 (woman) on the left and 子 (child) on the right. Recognising components can help you remember characters.',
+ tip:'This version explains basic rules and simple characters. Animated stroke order and handwriting recognition are not included.',
+ exercises:[choice('In which direction do you write 一?',['Right to left','Left to right','Bottom to top'],1,'The horizontal stroke goes from left to right.'),choice('Which components can you see in 好?',['女 and 子','日 and 月','口 and 木'],0,'女 is on the left and 子 is on the right.'),choice('What is 学生 (xuésheng)?',['One word with two characters','Two Latin letters','Only a tone mark'],0,'A Chinese word can contain more than one character.')]},
+ {id:'greetings',section:1,title:'Your first conversation',subtitle:'Greetings & goodbyes',glyph:'好',minutes:6,
+ explanation:'你好！Nǐ hǎo! means “Hello!”. 你好吗？Nǐ hǎo ma? asks “How are you?”. One possible answer is 我很好。Wǒ hěn hǎo. (“I am well.”). 很 hěn often means “very”, but in simple statements like this it also links a subject with a description. 谢谢 xièxie means “thank you”, and 再见 zàijiàn means “goodbye”.',
+ dialogue:[['你好！','Nǐ hǎo!','Hello!'],['你好吗？','Nǐ hǎo ma?','How are you?'],['我很好，谢谢！','Wǒ hěn hǎo, xièxie!','I am well, thank you!']],
+ exercises:[choice('How do you greet someone?',['再见','你好','谢谢'],1,'你好 is a common greeting.'),input('Write “thank you” in Pinyin.',['xièxie','xie4 xie','xie4xie'],'谢谢 is xièxie; its second syllable has a neutral tone.'),choice('What does 再见 mean?',['Thank you','Enjoy your meal','Goodbye'],2,'Use 再见 zàijiàn when saying goodbye.')]},
+ {id:'introduce',section:1,title:'This is me',subtitle:'Introductions & word order',glyph:'我',minutes:7,
+ explanation:'A simple sentence often follows subject – verb – object: 我学中文。Wǒ xué Zhōngwén. (“I study Chinese.”). 我 wǒ means “I”, and 你 nǐ means “you”. 我叫安娜。Wǒ jiào Ānnà. means “My name is Anna.” 是 shì can link a person to a role: 我是学生。Wǒ shì xuésheng. (“I am a student.”). Verbs do not change their form to match the person.',
+ dialogue:[['你叫什么名字？','Nǐ jiào shénme míngzi?','What is your name?'],['我叫安娜。','Wǒ jiào Ānnà.','My name is Anna.']],
+ exercises:[choice('Which sentence means “I study Chinese”?',['中文我学。','我学中文。','学我中文。'],1,'我 is the subject, 学 is the verb, and 中文 is the object.'),input('What is “I” in Pinyin?',['wǒ','wo3'],'我 wǒ means “I”.'),choice('How do you say “My name is Anna”?',['我是你好。','我叫安娜。','你叫安娜。'],1,'我叫 … means “My name is …”.')]},
+ {id:'questions',section:1,title:'Ask a question',subtitle:'吗 & question words',glyph:'吗',minutes:6,
+ explanation:'Adding 吗 ma to the end of a statement makes a yes/no question: 你是学生。→ 你是学生吗？(Are you a student?). The word order stays the same. A question word takes the place of the answer: 你喝什么？Nǐ hē shénme? (“What do you drink?”). 什么 shénme means “what”, 谁 shéi means “who”, and 哪儿 nǎr means “where”. Questions using these words do not need an extra 吗.',
+ exercises:[choice('Which word turns 你是学生 into a yes/no question?',['不','吗','很'],1,'吗 goes at the end of the question.'),choice('What does 什么 mean?',['When','What','How much'],1,'什么 shénme asks about a thing.'),input('Complete in Hanzi: 你喝___？ (“What do you drink?”)',['什么'],'The question word takes the place of the drink.')]},
+ {id:'negation',section:1,title:'No, and not yet',subtitle:'Negation with 不 & 没',glyph:'不',minutes:7,
+ explanation:'不 bù often negates habits, intentions or states: 我不喝茶。Wǒ bù hē chá. (“I do not drink tea.”). Before a fourth tone, 不 is pronounced bú: 不是 bú shì. 没 méi negates 有 yǒu (“to have”): 我没有钱。Wǒ méi yǒu qián. (“I do not have any money.”). 没 can also say that something did not happen: 我没去。Wǒ méi qù. (“I did not go.”).',
+ exercises:[choice('How do you say “I am not a student”?',['我不学生。','我不是学生。','我没是学生。'],1,'Use 不 to negate 是 here.'),choice('What belongs in 我___有钱?',['不','吗','没'],2,'Negate 有 with 没.'),input('Write the base pronunciation of 不 using a tone mark or number.',['bù','bu4'],'The base form is bù. Before a fourth tone it is pronounced bú.')]},
+ {id:'numbers',section:1,title:'One, two, three',subtitle:'Numbers & measure words',glyph:'三',minutes:8,
+ explanation:'一 yī (1), 二 èr (2), 三 sān (3), 四 sì (4), 五 wǔ (5), 六 liù (6), 七 qī (7), 八 bā (8), 九 jiǔ (9), 十 shí (10), 零 líng (0). 十一 is 11, 二十 is 20, and 二十三 is 23. When counting things, a measure word usually comes between the number and the noun: 三个人 sān ge rén (three people). 个 ge is common; 杯 bēi counts cups or glasses. Before measure words, two is usually 两 liǎng: 两杯茶 (two cups of tea).',
+ tip:'In the dialogue, 几 jǐ means “how many” when expecting a small number. 苹果 píngguǒ means apple. 个 goes between the number or question word and the noun.',
+ dialogue:[['你有几个苹果？','Nǐ yǒu jǐ ge píngguǒ?','How many apples do you have?'],['我有三个苹果。','Wǒ yǒu sān ge píngguǒ.','I have three apples.']],
+ exercises:[choice('Which number is 二十三?',['13','23','32'],1,'二十 is twenty; 三 adds three.'),choice('How do you order two cups of tea?',['两杯茶','二茶杯','茶两个'],0,'两 + 杯 + 茶: number, measure word, noun.'),input('Write 三 in Pinyin.',['sān','san1'],'三 sān means three.')]},
+ {id:'time',section:1,title:'Today at three',subtitle:'Days & telling the time',glyph:'时',minutes:7,
+ explanation:'今天 jīntiān means “today”, 明天 míngtiān means “tomorrow”, and 昨天 zuótiān means “yesterday”. A time expression often goes before the verb: 我今天学中文。or 今天我学中文。Both mean “I study Chinese today.” 三点 sān diǎn means three o’clock, and 三点半 sān diǎn bàn means half past three (3:30). 上午 shàngwǔ is the morning and 下午 xiàwǔ is the afternoon.',
+ exercises:[choice('What does 明天 mean?',['Yesterday','Today','Tomorrow'],2,'明天 míngtiān means tomorrow.'),choice('What time is 三点半?',['2:30','3:30','4:30'],1,'三点 is three o’clock; 半 adds half an hour.'),choice('Which sentence has a usual word order?',['我今天学中文。','我学今天中文。','我学中文今天吗不。'],0,'The time expression 今天 comes before the verb 学 here.')]},
+ {id:'food',section:2,title:'A tea, please',subtitle:'At a café or restaurant',glyph:'茶',minutes:8,
+ explanation:'我要一杯茶。Wǒ yào yì bēi chá. means “I would like a cup of tea.” 一 has the base tone yī, but is pronounced yì before a first, second or third tone, and yí before a fourth tone. 请 qǐng means “please”: 请给我一杯水。Qǐng gěi wǒ yì bēi shuǐ. (“Please give me a glass of water.”). 米饭 mǐfàn is cooked rice, and 面条 miàntiáo means noodles. When you want to pay, you can say 买单，谢谢！Mǎidān, xièxie! (“The bill, please!”).',
+ dialogue:[['你要什么？','Nǐ yào shénme?','What would you like?'],['我要一杯茶。','Wǒ yào yì bēi chá.','I would like a cup of tea.'],['好的。','Hǎo de.','All right.']],
+ exercises:[choice('What do you order with 一杯茶?',['A bowl of rice','A cup of tea','Two glasses of water'],1,'杯 counts the cup here; 茶 means tea.'),input('What is “water” in Pinyin?',['shuǐ','shui3'],'水 shuǐ means water.'),choice('What can you say when you want to pay?',['买单，谢谢！','你好吗？','我叫安娜。'],0,'买单 means to pay or ask for the bill.')]},
+ {id:'shopping',section:2,title:'How much is it?',subtitle:'Shopping & prices',glyph:'钱',minutes:7,
+ explanation:'这个多少钱？Zhège duōshao qián? means “How much is this?” 这 zhè means “this”, and 个 is the measure word here. 元 yuán is the currency unit of the renminbi; in conversation, people often use 块 kuài. 十块 shí kuài means ten yuan. 太贵了！Tài guì le! means “That is too expensive!” 我要这个。Wǒ yào zhège. means “I would like this one.”',
+ dialogue:[['这个多少钱？','Zhège duōshao qián?','How much is this?'],['二十块。','Èrshí kuài.','Twenty yuan.'],['我要这个。','Wǒ yào zhège.','I would like this one.']],
+ exercises:[choice('How do you ask for the price?',['你叫什么名字？','这个多少钱？','你去哪儿？'],1,'多少钱 asks about an amount of money.'),choice('What does 二十块 mean?',['2 yuan','12 yuan','20 yuan'],2,'二十 means twenty.'),input('Write “money” (钱) in Pinyin.',['qián','qian2'],'钱 qián means money.')]},
+ {id:'directions',section:2,title:'Find your way',subtitle:'Getting around town',glyph:'路',minutes:8,
+ explanation:'请问 qǐngwèn politely introduces a question (“Excuse me, may I ask …”). 地铁站在哪儿？Dìtiězhàn zài nǎr? means “Where is the metro station?” 在 zài indicates a location here. 左边 zuǒbian means “left”, and 右边 yòubian means “right”. 一直走 yìzhí zǒu means “go straight ahead”. 左转 zuǒ zhuǎn means “turn left”, and 右转 yòu zhuǎn means “turn right”.',
+ dialogue:[['请问，地铁站在哪儿？','Qǐngwèn, dìtiězhàn zài nǎr?','Excuse me, where is the metro station?'],['一直走，然后左转。','Yìzhí zǒu, ránhòu zuǒ zhuǎn.','Go straight ahead, then turn left.'],['谢谢！','Xièxie!','Thank you!']],
+ exercises:[choice('What does 左边 mean?',['Right','Left','Straight ahead'],1,'左边 zuǒbian means left.'),choice('Which question asks for a location?',['多少钱？','你好吗？','地铁站在哪儿？'],2,'在哪儿 asks where something is.'),input('What is “to go” (走) in Pinyin?',['zǒu','zou3'],'走 zǒu means to go or walk.')]}
+];
+const vocabulary = [
+ ['你好','nǐ hǎo','Hello','你好！','Hello!','pinyin'],['妈','mā','Mum','妈妈很好。','Mum is well.','tones'],['马','mǎ','Horse','一匹马','a horse','tones'],['好','hǎo','Good','我很好。','I am well.','reading'],['学生','xuésheng','Student','我是学生。','I am a student.','characters'],['谢谢','xièxie','Thank you','谢谢你！','Thank you!','greetings'],['再见','zàijiàn','Goodbye','再见！','Goodbye!','greetings'],['我','wǒ','I','我学中文。','I study Chinese.','introduce'],['你','nǐ','You','你好吗？','How are you?','introduce'],['是','shì','To be','我是学生。','I am a student.','introduce'],['什么','shénme','What','你喝什么？','What do you drink?','questions'],['不','bù','Not','我不喝茶。','I do not drink tea.','negation'],['三','sān','Three','三个人','three people','numbers'],['两','liǎng','Two (before measure words)','两杯茶','two cups of tea','numbers'],['今天','jīntiān','Today','今天我学中文。','I study Chinese today.','time'],['明天','míngtiān','Tomorrow','明天见！','See you tomorrow!','time'],['茶','chá','Tea','我要一杯茶。','I would like a cup of tea.','food'],['水','shuǐ','Water','我要一杯水。','I would like a glass of water.','food'],['米饭','mǐfàn','Cooked rice','我要米饭。','I would like rice.','food'],['钱','qián','Money','我没有钱。','I do not have any money.','shopping'],['贵','guì','Expensive','太贵了！','That is too expensive!','shopping'],['左边','zuǒbian','Left','在左边。','It is on the left.','directions'],['右边','yòubian','Right','在右边。','It is on the right.','directions'],['地铁站','dìtiězhàn','Metro station','地铁站在哪儿？','Where is the metro station?','directions']
+];
+
+const STORAGE_KEY = 'hao-progress-v1';
+const emptyProgress = () => ({ completed: [], results: {}, reviews: {}, activity: [] });
+function sanitizeProgress(raw, ids, reviewKeys = []) {
+  const state = emptyProgress();
+  if (!raw || typeof raw !== 'object') return state;
+  // Only accept a continuous completed prefix, so damaged storage cannot skip lessons.
+  for (const id of ids) { if (!Array.isArray(raw.completed) || !raw.completed.includes(id)) break; state.completed.push(id); }
+  for (const id of ids) {
+    const r = raw.results?.[id];
+    if (r && Number.isInteger(r.correct) && r.correct >= 0 && r.correct <= 3) state.results[id] = {correct:r.correct, total:3};
+  }
+  if (raw.reviews && typeof raw.reviews === 'object') for (const key of reviewKeys) {
+    if (['__proto__','constructor','prototype'].includes(key) || !Object.hasOwn(raw.reviews,key)) continue;
+    const value=raw.reviews[key];
+    if (Number.isInteger(value) && value >= 0 && value <= 100000) state.reviews[key] = value;
+  }
+  state.activity = Array.isArray(raw.activity) ? [...new Set(raw.activity.filter(x => typeof x === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(x)))].slice(-366) : [];
+  return state;
+}
+function isUnlocked(index, state, lessons) { return index === 0 || state.completed.includes(lessons[index - 1].id); }
+function normalizeAnswer(value) { return value.normalize('NFC').toLocaleLowerCase('en').trim().replace(/\s+/g,''); }
+function matchesAnswer(value, answers) { return answers.some(answer => normalizeAnswer(value) === normalizeAnswer(answer)); }
+function localDay(date = new Date()) { return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`; }
+function createProgressBackup(state) {
+  return JSON.stringify({app:'hao-mandarin',version:1,progress:state},null,2);
+}
+function parseProgressBackup(text,ids,reviewKeys) {
+  if(typeof text!=='string'||text.length>100000)throw new Error('Invalid progress backup.');
+  const backup=JSON.parse(text);
+  const progress=backup?.progress;
+  if(backup?.app!=='hao-mandarin'||backup.version!==1||!progress||
+    !Array.isArray(progress.completed)||!Array.isArray(progress.activity)||
+    !progress.results||typeof progress.results!=='object'||Array.isArray(progress.results)||
+    !progress.reviews||typeof progress.reviews!=='object'||Array.isArray(progress.reviews)) {
+    throw new Error('Invalid progress backup.');
+  }
+  return sanitizeProgress(progress,ids,reviewKeys);
+}
+
+// All text interpolated into HTML must pass through this function.
+const escapeHTML = value => String(value).replace(/[&<>"']/g, character => ({
+  '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+}[character]));
+
+
+
+
+const escape = escapeHTML;
+const $ = s => document.querySelector(s);
+let storageAvailable = true;
+let state;
+try {
+ const saved=localStorage.getItem(STORAGE_KEY);
+ state=sanitizeProgress(saved && saved.length<=100000 ? JSON.parse(saved) : null,lessons.map(l=>l.id),vocabulary.map(w=>w[0]));
+}
+catch { state = emptyProgress(); storageAvailable = false; }
+const dialog = $('#lesson-dialog');
+let session = null;
+function save() {
+  state.activity = [...new Set([...state.activity, localDay()])].slice(-366);
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); storageAvailable = true; }
+  catch { storageAvailable = false; toast('Unable to save. Your progress will last only until you close this page.'); }
+}
+function toast(message) { $('#toast').textContent = message; $('#toast').classList.add('visible'); clearTimeout(toast.timer); toast.timer = setTimeout(()=>$('#toast').classList.remove('visible'),5000); }
+const learnedWords = () => vocabulary.filter(w=>state.completed.includes(w[5]));
+const nextLesson = () => lessons.find(l=>!state.completed.includes(l.id)) || lessons[0];
+function render() {
+  const aliases = { lernen:'learn', wiederholen:'review', wortschatz:'vocabulary' };
+  const hash = location.hash.slice(1);
+  const view = ['learn','review','vocabulary'].includes(hash) ? hash : Object.hasOwn(aliases,hash) ? aliases[hash] : 'learn';
+  document.querySelectorAll('[data-view]').forEach(a => a.classList.toggle('active', a.dataset.view === view));
+  $('#review-badge').textContent = learnedWords().length;
+  $('#content').innerHTML = view === 'review' ? reviewPage() : view === 'vocabulary' ? vocabularyPage() : coursePage();
+  $('#content').querySelectorAll('[data-lesson]').forEach(b=>b.addEventListener('click',()=>openLesson(b.dataset.lesson)));
+  $('#start-review')?.addEventListener('click', startReview);
+  $('#word-search')?.addEventListener('input', filterWords);
+}
+function coursePage() {
+  const completed = state.completed.length;
+  const next = nextLesson();
+  const percent = Math.round(completed/lessons.length*100);
+  return `<section class="page-heading"><div><p class="eyebrow">你好 NǏ HǍO · GOOD TO SEE YOU</p><h1>Your path to Mandarin<span>.</span></h1><p>From your first tone to your first conversation.<br class="desktop-break"> Learn at your own pace, one small step at a time.</p></div><span class="level-pill">✧ For complete beginners</span></section>
+  <section class="hero"><div class="hero-copy"><p class="eyebrow">${completed===lessons.length?'YOUR FOUNDATIONS ARE IN PLACE':'YOUR NEXT STEP'}</p><h2>${completed===lessons.length?'好极了！Well done.':completed===0?'A new language.<br>A new perspective.':escape(next.title)}</h2><p>${completed===lessons.length?'You have completed every lesson. Keep your knowledge fresh with a review.':completed===0?'Start with Pinyin and discover the sounds of Mandarin.<br>No prior knowledge needed. Just a little curiosity.':escape(next.subtitle)+' · With a short explanation and three exercises.'}</p><button class="button light" ${completed===lessons.length?'id="start-review"':`data-lesson="${next.id}"`}>${completed===0?'My first lesson':completed===lessons.length?'Review words':'Continue learning'} <span>↗</span></button><small>◷ ${next.minutes} minutes &nbsp; · &nbsp; Explained step by step</small></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><span class="art-small">一点一滴</span><span class="art-character">学</span><span class="art-caption">xué &nbsp; / &nbsp; learn</span><span class="spark">✳</span></div></section>
+  <section class="stats" aria-label="Your progress"><div><span class="stat-icon">▦</span><div><strong>${completed}<span> / ${lessons.length}</span></strong><small>Lessons completed</small></div></div><div><span class="stat-icon peach">字</span><div><strong>${learnedWords().length}</strong><small>Words unlocked</small></div></div><div><span class="stat-icon lavender">✧</span><div><strong>${state.activity.length}</strong><small>Active learning days</small></div></div><div class="total-progress"><div><b>Your course progress</b><strong>${percent}%</strong></div><progress value="${completed}" max="${lessons.length}" aria-label="Course progress">${percent}%</progress></div></section>
+  <div class="path-heading"><div><p class="eyebrow">YOUR LEARNING PATH</p><h2>Every journey starts with a first step.</h2></div><span>${lessons.length} lessons · 3 chapters</span></div>
+  <div class="course-layout"><div class="chapters">${sections.map((s,si)=>`<section class="chapter ${escape(s.color)}"><div class="chapter-heading"><span class="chapter-number">${escape(s.label)}</span><div><h3>${escape(s.title)}</h3><p>${escape(s.description)}</p></div><span class="chapter-count">${lessons.filter(l=>l.section===si&&state.completed.includes(l.id)).length}/${lessons.filter(l=>l.section===si).length}</span></div><div class="lesson-list">${lessons.map((l,i)=>({l,i})).filter(({l})=>l.section===si).map(({l,i})=>{
+    const done=state.completed.includes(l.id), unlocked=isUnlocked(i,state,lessons), current=l.id===next.id;
+    return `<button class="lesson ${done?'done':''} ${current?'current':''}" data-lesson="${escape(l.id)}" ${unlocked?'':'disabled'}><span class="lesson-node">${done?'✓':unlocked?String(i+1).padStart(2,'0'):'⌑'}</span><span class="lesson-info"><strong>${escape(l.title)} ${current?'<span class="next-tag">UP NEXT</span>':''}</strong><small>${escape(l.subtitle)}</small></span><span class="lesson-time">${l.minutes} min</span><span class="lesson-arrow">${done?'✓':unlocked?'↗':'Locked'}</span></button>`;
+  }).join('')}</div></section>`).join('')}</div><aside class="path-aside"><div class="daily-card"><span class="mini-label">YOUR FIRST WORD</span><span class="daily-hanzi" lang="zh">你好</span><span class="daily-pinyin">nǐ hǎo</span><h3>Hello, new world.</h3><p>Two characters. Two syllables.<br>The beginning of something bigger.</p><div class="tone-chips"><span>nǐ <b>3rd tone</b></span><span>hǎo <b>3rd tone</b></span></div></div><div class="note-card"><span>✺</span><h3>A little, often.</h3><p>A few minutes a day help you stay consistent. Revisit familiar words before learning something new.</p><a href="#review">Review what you know <span>→</span></a></div><div class="audio-note">ⓘ <span>Audio is not available yet. Tone exercises currently use visual cues.</span></div></aside></div>`;
+}
+function reviewPage() {
+ const words = learnedWords();
+ return `<section class="page-heading"><div><p class="eyebrow">KNOWLEDGE THAT STAYS</p><h1>One more time. A little more confident<span>.</span></h1><p>Review words from your completed lessons.</p></div></section><section class="review-hero"><span class="review-symbol">↻</span><h2>${words.length?`${words.length} ${words.length===1?'word is waiting':'words are waiting'} for you.`:'Your vocabulary grows with you.'}</h2><p>${words.length?'Up to five short exercises. Words with fewer correct reviews come first.':'Complete your first lesson to unlock word reviews.'}</p>${words.length?'<button class="button" id="start-review">Start review ↗</button>':`<button class="button" data-lesson="${escape(nextLesson().id)}">Take your next step ↗</button>`}</section><section class="chapter"><h2>Practise earlier lessons</h2><p>Open a completed lesson to revisit its explanation and exercises.</p><div class="repeat-grid">${lessons.filter(l=>state.completed.includes(l.id)).map(l=>`<button data-lesson="${escape(l.id)}"><span lang="zh">${escape(l.glyph)}</span><strong>${escape(l.title)}</strong><small>Last result: ${state.results[l.id]?.correct??0}/3 correct</small></button>`).join('') || '<p>No lessons completed yet.</p>'}</div></section>`;
+}
+function vocabularyPage() {
+ return `<section class="page-heading"><div><p class="eyebrow">CHARACTER BY CHARACTER</p><h1>Your growing vocabulary<span>.</span></h1><p>Look up all ${vocabulary.length} course words. Words you have learned are marked.</p></div></section><label class="search-label">Find a word<input id="word-search" type="search" placeholder="Hanzi, Pinyin or English meaning …"></label><p id="search-count" role="status">${vocabulary.length} words</p><div class="word-grid" id="word-grid">${vocabulary.map(w=>`<article class="word-card" data-search="${escape(w.slice(0,3).join(' ').toLowerCase())}"><div><span lang="zh" class="word-hanzi">${escape(w[0])}</span>${state.completed.includes(w[5])?'<span class="learned-tag">✓ Learned</span>':''}</div><p class="pinyin">${escape(w[1])}</p><h3>${escape(w[2])}</h3><hr><p lang="zh">${escape(w[3])}</p><small>${escape(w[4])}</small></article>`).join('')}</div>`;
+}
+function filterWords(event) {
+ const query=event.target.value.toLowerCase().normalize('NFD').replace(/\p{M}/gu,''); let count=0;
+ document.querySelectorAll('[data-search]').forEach(card=>{card.hidden=!card.dataset.search.normalize('NFD').replace(/\p{M}/gu,'').includes(query);if(!card.hidden)count++;});
+ $('#search-count').textContent=count?`${count} ${count===1?'word':'words'}`:'No matching words found.';
+}
+function showDialog(html) {
+ dialog.innerHTML=`<button class="close-dialog" aria-label="Close">×</button>${html}`;
+ dialog.querySelector('.close-dialog').addEventListener('click',()=>dialog.close());
+ if(!dialog.open)dialog.showModal();
+ const heading=dialog.querySelector('#lesson-title');
+ heading.setAttribute('tabindex','-1');
+ heading.focus({preventScroll:true});
+ dialog.scrollTop=0;
+}
+function openLesson(id) {
+ const i=lessons.findIndex(l=>l.id===id); if(i<0 || !isUnlocked(i,state,lessons))return;
+ session={lesson:lessons[i], step:0, correct:0, answered:false, retry:[]};
+ const l=session.lesson;
+ showDialog(`<p class="eyebrow">CHAPTER ${l.section+1} · ${l.minutes} MINUTES</p><h2 id="lesson-title">${escape(l.title)}</h2><div class="lesson-banner" lang="zh">${escape(l.glyph)}</div><h3>${escape(l.subtitle)}</h3><p class="explanation">${escape(l.explanation)}</p>${l.tip?`<aside class="lesson-tip">ⓘ ${escape(l.tip)}</aside>`:''}${l.dialogue?`<div class="dialogue">${l.dialogue.map(line=>`<div><strong lang="zh">${escape(line[0])}</strong><span>${escape(line[1])}</span><p>${escape(line[2])}</p></div>`).join('')}</div>`:''}<button id="begin-exercises" class="button">Practise now <span>→</span></button>`);
+ $('#begin-exercises').addEventListener('click',renderExercise);
+}
+function renderExercise() {
+ const s=session, exercises=s.review?s.exercises:s.lesson.exercises, e=exercises[s.step];s.answered=false;
+ showDialog(`<p class="eyebrow">${s.review?'REVIEW':escape(s.lesson.title)} · EXERCISE ${s.step+1} OF ${exercises.length}</p><h2 id="lesson-title">${s.review?'Do you remember?':'Give it a try.'}</h2><progress value="${s.step}" max="${exercises.length}" aria-label="Exercise progress"></progress><h3 class="question">${escape(e.prompt)}</h3><form id="answer-form">${e.type==='choice'?`<div class="choices">${e.options.map((o,i)=>`<label><input type="radio" name="answer" value="${i}" required><span>${escape(o)}</span></label>`).join('')}</div>`:`<label class="input-label">Your answer<input name="answer" autocomplete="off" required maxlength="120" placeholder="Pinyin with tone marks or numbers" aria-describedby="input-help"></label><small id="input-help">Use tone marks or numbers (e.g. nǐ or ni3); enter characters for Hanzi questions.</small>`}<div id="feedback" aria-live="polite"></div><button class="button" type="submit">Check answer</button></form>`);
+ $('#answer-form').addEventListener('submit',checkAnswer);
+}
+function checkAnswer(event) {
+ event.preventDefault(); const s=session, exercises=s.review?s.exercises:s.lesson.exercises, e=exercises[s.step];
+ if(s.answered)return; const value=new FormData(event.target).get('answer'); if(!String(value??'').trim())return;
+ s.answered=true;
+ const correct=e.type==='choice'?Number(value)===e.answer:matchesAnswer(value,e.answers);
+ if(correct)s.correct++;else s.retry.push(s.step);
+ if(s.review && correct){state.reviews[e.word]=Math.min(100000,(state.reviews[e.word]||0)+1);save();}
+ const feedback=$('#feedback');feedback.className=`feedback ${correct?'correct':'incorrect'}`;
+ feedback.innerHTML=`<strong>${correct?'✓ Exactly right!':'Not quite yet.'}</strong><p>${!correct?`Correct answer: ${escape(e.type==='choice'?e.options[e.answer]:e.answers[0])}. `:''}${escape(e.explanation)}</p>`;
+ event.target.querySelectorAll('input').forEach(i=>i.disabled=true);
+ const button=event.target.querySelector('button');button.type='button';button.textContent=s.step+1===exercises.length?'See results →':'Next exercise →';button.addEventListener('click',()=>{s.step++;if(s.step<exercises.length)renderExercise();else finishSession();},{once:true});button.focus();
+}
+function finishSession() {
+ const s=session, total=s.review?s.exercises.length:s.lesson.exercises.length, passed=s.correct===total;
+ if(!s.review){state.results[s.lesson.id]={correct:s.correct,total};if(passed&&!state.completed.includes(s.lesson.id))state.completed.push(s.lesson.id);save();}
+ render();
+ showDialog(`<div class="completion-icon">${passed?'✧':'↻'}</div><p class="eyebrow">${s.review?'REVIEW COMPLETE':passed?'LESSON COMPLETE':'ONE MORE ROUND'}</p><h2 id="lesson-title">${passed?'好！Well done.':'You are making progress.'}</h2><p class="result-score">${s.correct}<span> / ${total}</span></p><p>${s.review?'Every review helps your knowledge stick.':passed?'Your progress is saved. The next lesson is now available.':'Read the explanation again and try once more. Get all three answers right to unlock the next lesson.'}</p>${!storageAvailable?'<p class="lesson-tip">Browser storage is unavailable. Progress will last only for this session.</p>':''}<button id="finish-action" class="button">${s.review?'Back to overview':passed&&state.completed.length<lessons.length?'Next lesson →':passed?'Back to overview':'Try the lesson again →'}</button><button id="finish-close" class="text-button">Close</button>`);
+ $('#finish-action').addEventListener('click',()=>{if(s.review||passed&&state.completed.length===lessons.length)dialog.close();else openLesson(passed?nextLesson().id:s.lesson.id);});
+ $('#finish-close').addEventListener('click',()=>dialog.close());
+}
+function startReview() {
+ const words=[...learnedWords()].sort((a,b)=>(state.reviews[a[0]]||0)-(state.reviews[b[0]]||0)).slice(0,5);
+ if(!words.length)return;
+ const exercises=words.map(w=>{const distractors=vocabulary.filter(v=>v[2]!==w[2]).slice(0,3).map(v=>v[2]);const options=[w[2],...distractors].sort(()=>Math.random()-.5);return {type:'choice',prompt:`What does ${w[0]} (${w[1]}) mean?`,options,answer:options.indexOf(w[2]),explanation:`${w[3]} – ${w[4]}`,word:w[0]};});
+ session={review:true,exercises,step:0,correct:0,answered:false,retry:[]};renderExercise();
+}
+$('#settings').addEventListener('click',()=>{
+ showDialog(`<p class="eyebrow">YOUR DEVICE, YOUR PROGRESS</p><h2 id="lesson-title">Local storage</h2><p>Completed lessons, latest results, correct word reviews and active learning days are stored in this browser. There is no account or synchronisation. Clearing browser data deletes your progress.</p><p>${storageAvailable?'Browser storage is available.':'Browser storage is unavailable. Progress will last only for this session.'}</p><button id="reset-progress" class="button danger">Reset learning progress</button><div id="reset-confirm"></div>`);
+ const backupPanel=document.createElement('section');
+ backupPanel.className='backup-panel';
+ const title=document.createElement('h3');title.textContent='Keep a progress backup';
+ const details=document.createElement('p');
+ details.textContent=location.protocol==='file:'
+   ? 'This copy works offline. Local-file storage depends on your browser and file location. Download a backup before moving or replacing this file, or switching browsers.'
+   : 'Download a backup to move your progress to another browser or the offline HTML copy.';
+ const download=document.createElement('button');download.className='button';download.textContent='Download progress backup';
+ download.addEventListener('click',()=>{
+   const url=URL.createObjectURL(new Blob([createProgressBackup(state)],{type:'application/json'}));
+   const link=document.createElement('a');link.href=url;link.download=`hao-progress-${localDay()}.json`;
+   document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ });
+ const label=document.createElement('label');label.className='backup-import';label.textContent='Import progress backup (.json)';
+ const fileInput=document.createElement('input');fileInput.type='file';fileInput.accept='.json,application/json';label.append(fileInput);
+ const importStatus=document.createElement('div');importStatus.setAttribute('role','status');
+ fileInput.addEventListener('change',async()=>{
+   importStatus.replaceChildren();
+   const file=fileInput.files[0];if(!file)return;
+   try {
+     if(file.size>100000)throw new Error('Too large');
+     const imported=parseProgressBackup(await file.text(),lessons.map(l=>l.id),vocabulary.map(w=>w[0]));
+     const preview=document.createElement('p');preview.textContent=`This backup contains ${imported.completed.length} completed lessons. Replace the progress in this browser?`;
+     const confirm=document.createElement('button');confirm.className='button';confirm.textContent='Replace progress with backup';
+     confirm.addEventListener('click',()=>{state=imported;save();render();dialog.close();toast('Progress backup imported.');},{once:true});
+     importStatus.append(preview,confirm);
+   }catch {importStatus.textContent='Please choose a valid Hǎo progress backup under 100 KB. Your current progress has not changed.';}
+   fileInput.value='';
+ });
+ backupPanel.append(title,details,download,label,importStatus);dialog.append(backupPanel);
+ $('#reset-progress').addEventListener('click',()=>{
+  $('#reset-confirm').innerHTML='<p>Really delete all local learning results?</p><button id="confirm-reset" class="button danger">Yes, delete progress</button>';
+  $('#confirm-reset').addEventListener('click',()=>{state=emptyProgress();try{localStorage.removeItem(STORAGE_KEY);}catch{}render();dialog.close();toast('Your learning path starts again at lesson 1.');});
+ });
+});
+window.addEventListener('hashchange',()=>{render();window.scrollTo(0,0);});
+render();
+if(location.protocol==='file:') {
+ const note=document.createElement('span');note.textContent='Offline copy · No installation or internet needed · Back up progress in settings';
+ document.querySelector('footer').append(note);
+}
+if(!storageAvailable)toast('Browser storage is unavailable. Progress will last only for this session.');
+
+})();</script>
+</body>
+</html>

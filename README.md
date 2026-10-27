@@ -16,7 +16,17 @@ An English-language Mandarin app for complete beginners, built with plain HTML, 
 
 **Audio is not available.** Tone exercises are visual and do not test listening. Pronunciation scoring, animated stroke order and handwriting recognition are also not included. Approximate English sound comparisons cannot replace listening to a qualified speaker.
 
-## Run locally
+## Use it without installing anything
+
+Download **`Hao.html`** and double-click it, or choose **Open with → your browser**. It contains the whole English course, exercises and both themes. No Node.js, server, hosting provider, account or internet connection is required to use this offline edition. Keep the `.html` extension. It opens as a browser page, not a native executable.
+
+Use a current desktop browser such as Chrome, Edge, Firefox or Safari. Mobile file-opening behaviour varies by operating system and file app. An automatic file preview may not run JavaScript; open the file in a full browser where supported.
+
+Progress storage for `file:` pages varies by browser and may change when the file is moved, renamed or replaced. In **Storage and settings**, use **Download progress backup** to save a JSON file. In another copy/browser, choose **Import progress backup** and confirm replacement. Never rely on local-file storage as your only copy. The browser may ask where to save a backup. This backup contains learning results, not the theme preference.
+
+There is no universal online link in this mode: share the HTML file itself. Each person runs their own local copy. The developer source `index.html` remains the modular version; end users should open `Hao.html`.
+
+## Developer preview
 
 Use a supported, patched Node.js release (minimum Node.js 22) and a modern browser supporting JavaScript modules and HTML dialogs. There are no npm dependencies and no installation step.
 
@@ -35,7 +45,7 @@ node scripts/build.js
 
 With npm available, the equivalent commands are `npm start`, `npm test`, and `npm run build`. Tests cover course integrity, progression, answer handling, storage validation, HTML escaping, HTTP access controls, headers and the deployment file list. HTTP tests require permission to connect to a local loopback server.
 
-The build writes eight public app files plus `_headers` to `dist/`. If it finds an unexpected file already in `dist/`, it stops so that the file can be reviewed. It never uploads anything.
+The build writes eight public app files plus `_headers` to `dist/`, and separately generates the single-file **`Hao.html`** in the repository root. To build only the offline copy, run `node scripts/build-standalone.js`. The standalone file embeds all scripts/styles with SHA-256 hashes in its Content Security Policy; it does not use `unsafe-inline` or fetch other files. If the static build finds an unexpected file already in `dist/`, it stops so that the file can be reviewed. Neither build uploads anything.
 
 ## Publish
 
@@ -56,6 +66,7 @@ Local results are editable by the visitor and must not be treated as verified as
 - `index.html`, `styles.css`, `dark.css`, `theme.js`: layout, styles and theme handling.
 - `security.js`, `server.js`: shared security policy, public-asset list and loopback preview server.
 - `scripts/build.js`: allowlisted deployment output and hosting headers.
+- `scripts/build-standalone.js`, `Hao.html`: reproducible, self-contained offline edition.
 - `tests/`: course, state and security regression tests.
 - `SECURITY.md`: controls, deployment requirements and limitations.
 
