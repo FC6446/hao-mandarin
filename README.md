@@ -18,7 +18,7 @@ An English-language Mandarin app for complete beginners, built with plain HTML, 
 
 ## Use it without installing anything
 
-Download **`Hao.html`** and double-click it, or choose **Open with → your browser**. It contains the whole English course, exercises and both themes. No Node.js, server, hosting provider, account or internet connection is required to use this offline edition. Keep the `.html` extension. It opens as a browser page, not a native executable.
+**[Download Hao.html](https://github.com/FC6446/hao-mandarin/releases/latest/download/Hao.html)** and double-click it, or choose **Open with → your browser**. It contains the whole English course, exercises and both themes. No Node.js, server, hosting provider, account or internet connection is required to use this offline edition. Keep the `.html` extension. It opens as a browser page, not a native executable.
 
 Use a current desktop browser such as Chrome, Edge, Firefox or Safari. Mobile file-opening behaviour varies by operating system and file app. An automatic file preview may not run JavaScript; open the file in a full browser where supported.
 
